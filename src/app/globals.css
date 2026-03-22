@@ -116,3 +116,15 @@ body {
 .skip-to-content:focus {
   left: 0;
 }
+
+/* ==============================
+   Gallery Utilities
+   ============================== */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

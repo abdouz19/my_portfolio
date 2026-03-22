@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils/cn";
 import { Badge } from "@/components/ui/badge";
+import { ProjectGallery } from "@/components/ui/gallery";
 import { type Project } from "@/lib/types/project";
 
 interface ProjectCardProps {
@@ -18,23 +18,33 @@ const categoryColors: Record<string, string> = {
 };
 
 export function ProjectCard({ project, onDetailClick }: ProjectCardProps) {
+  const isMobile = project.screenshots?.platform === "mobile";
+
   return (
     <div
       className={cn(
         "group overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:scale-[1.02] hover:border-border-glow-hover",
       )}
     >
-      <div className="relative h-48 w-full overflow-hidden bg-card-hover">
-        <Image
-          src={project.previewImage}
-          alt={`${project.title} preview`}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
+      <div
+        className={cn(
+          "relative w-full overflow-hidden rounded-t-xl bg-card-hover",
+          isMobile ? "h-[280px]" : "h-[220px]",
+        )}
+      >
+        {project.screenshots ? (
+          <ProjectGallery
+            screenshots={project.screenshots}
+            projectTitle={project.title}
+          />
+        ) : (
+          <div className="flex h-full items-center justify-center text-muted">
+            No preview available
+          </div>
+        )}
         <button
           onClick={() => onDetailClick(project)}
-          className="absolute right-3 top-3 rounded-lg border border-border bg-card/80 p-2 opacity-0 backdrop-blur-sm transition-opacity group-hover:opacity-100 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring"
+          className="absolute right-3 top-3 z-20 rounded-lg border border-border bg-card/80 p-2 opacity-0 backdrop-blur-sm transition-opacity group-hover:opacity-100 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring"
           aria-label={`View details for ${project.title}`}
         >
           <ExternalLink className="h-4 w-4" />

@@ -10,6 +10,11 @@ export interface ProjectLinks {
   live?: string;
 }
 
+export interface ProjectScreenshots {
+  platform: "mobile" | "web" | "desktop";
+  images: string[];
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -19,6 +24,6 @@ export interface Project {
   features: string[];
   techStack: TechStackItem[];
   previewImage: string;
-  screenshots?: string[];
+  screenshots?: ProjectScreenshots;
   links: ProjectLinks;
 }

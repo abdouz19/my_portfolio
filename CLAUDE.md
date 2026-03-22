@@ -3,6 +3,8 @@
 Auto-generated from all feature plans. Last updated: 2026-03-22
 
 ## Active Technologies
+- TypeScript 5 strict mode + Next.js 16 (App Router), React 19, Framer Motion 12, Tailwind CSS v4, next/image (002-project-preview-gallery)
+- N/A (static images in `public/`) (002-project-preview-gallery)
 
 - TypeScript 5 strict mode + Next.js 14+ (App Router) + React 18 (001-portfolio-full-site)
 - Tailwind CSS v3+ with CSS custom properties for theming
@@ -51,6 +53,7 @@ pnpm lint         # ESLint + Prettier check
 Read `.specify/memory/constitution.md` before writing any code.
 
 ## Recent Changes
+- 002-project-preview-gallery: Added TypeScript 5 strict mode + Next.js 16 (App Router), React 19, Framer Motion 12, Tailwind CSS v4, next/image
 
 - 001-portfolio-full-site: Full portfolio site with 10 sections, typed constants, atomic UI
 
