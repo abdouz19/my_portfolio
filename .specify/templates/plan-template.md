@@ -31,7 +31,22 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+Verify the following against `.specify/memory/constitution.md` before proceeding:
+
+| # | Gate | Status |
+|---|------|--------|
+| 1 | All new data shapes defined as TypeScript interfaces in `src/lib/types/` | ☐ |
+| 2 | All display text/data planned for `src/lib/constants/` — zero inline strings in components | ☐ |
+| 3 | All colors planned via Tailwind tokens or CSS custom properties — zero hardcoded hex | ☐ |
+| 4 | Component uses semantic HTML5 structure; accessibility requirements addressed | ☐ |
+| 5 | Images planned via `next/image`; bundle size impact considered (≤200 KB total) | ☐ |
+| 6 | Animation variants planned for `src/lib/utils/motion-variants.ts`; `prefers-reduced-motion` handled | ☐ |
+| 7 | Component is atomic/context-unaware OR is a section that composes primitives with constants | ☐ |
+| 8 | All layouts designed mobile-first; breakpoints (320/768/1280) verified | ☐ |
+| 9 | SEO/metadata impact assessed for any new page or route | ☐ |
+| 10 | No unlisted package dependencies introduced | ☐ |
+
+If any gate is ❌, document the violation and justification in the Complexity Tracking table below.
 
 ## Project Structure
 
