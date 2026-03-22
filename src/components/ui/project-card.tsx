@@ -18,20 +18,14 @@ const categoryColors: Record<string, string> = {
 };
 
 export function ProjectCard({ project, onDetailClick }: ProjectCardProps) {
-  const isMobile = project.screenshots?.platform === "mobile";
-
   return (
     <div
       className={cn(
-        "group overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:scale-[1.02] hover:border-border-glow-hover",
+        "group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:scale-[1.02] hover:border-border-glow-hover",
       )}
     >
-      <div
-        className={cn(
-          "relative w-full overflow-hidden rounded-t-xl bg-card-hover",
-          isMobile ? "h-[280px]" : "h-[220px]",
-        )}
-      >
+      <div className="relative w-full overflow-hidden rounded-t-xl bg-card-hover h-[280px]">
+
         {project.screenshots ? (
           <ProjectGallery
             screenshots={project.screenshots}
@@ -50,7 +44,7 @@ export function ProjectCard({ project, onDetailClick }: ProjectCardProps) {
           <ExternalLink className="h-4 w-4" />
         </button>
       </div>
-      <div className="p-5">
+      <div className="flex-1 p-5">
         <Badge variant="colored" color={categoryColors[project.category]}>
           {project.category.toUpperCase()}
         </Badge>

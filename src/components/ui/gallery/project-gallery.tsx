@@ -81,7 +81,7 @@ function MobileGallery({ images }: { images: string[] }) {
 function WebGallery({ images, title }: { images: string[]; title: string }) {
   if (images.length === 1) {
     return (
-      <div className={cn("h-[220px] p-3 flex items-center justify-center")}>
+      <div className={cn("h-[280px] p-3 flex items-center justify-center")}>
         <motion.div
           custom={0}
           variants={galleryFrameVariants}
@@ -97,7 +97,7 @@ function WebGallery({ images, title }: { images: string[]; title: string }) {
   }
 
   return (
-    <div className="h-[220px] p-3">
+    <div className="h-[280px] p-3">
       <GalleryCarousel itemCount={images.length}>
         {images.map((src, i) => (
           <motion.div
@@ -120,7 +120,7 @@ function WebGallery({ images, title }: { images: string[]; title: string }) {
 function DesktopGallery({ images, title }: { images: string[]; title: string }) {
   if (images.length === 1) {
     return (
-      <div className={cn("h-[220px] p-3 flex items-center justify-center")}>
+      <div className={cn("h-[280px] p-3 flex items-center justify-center")}>
         <motion.div
           custom={0}
           variants={galleryFrameVariants}
@@ -136,7 +136,7 @@ function DesktopGallery({ images, title }: { images: string[]; title: string }) 
   }
 
   return (
-    <div className="h-[220px] p-3">
+    <div className="h-[280px] p-3">
       <GalleryCarousel itemCount={images.length}>
         {images.map((src, i) => (
           <motion.div
