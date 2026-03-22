@@ -34,7 +34,7 @@ const aboutCards = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-20">
+    <section id="about" className="py-12 sm:py-16 md:py-20">
       <Container>
         <div className="grid gap-12 lg:grid-cols-2">
           <motion.div
@@ -59,7 +59,7 @@ export function AboutSection() {
               <div className="text-center">
                 <AnimatedCounter
                   target={8}
-                  className="text-3xl font-bold text-accent-blue md:text-4xl"
+                  className="text-2xl font-bold text-accent-blue sm:text-3xl md:text-4xl"
                 />
                 <p className="mt-1 text-xs font-medium uppercase tracking-wider text-muted">
                   Projects Completed
@@ -68,7 +68,7 @@ export function AboutSection() {
               <div className="text-center">
                 <AnimatedCounter
                   target={2}
-                  className="text-3xl font-bold text-accent-blue md:text-4xl"
+                  className="text-2xl font-bold text-accent-blue sm:text-3xl md:text-4xl"
                 />
                 <p className="mt-1 text-xs font-medium uppercase tracking-wider text-muted">
                   Years Experience

@@ -31,7 +31,7 @@ export function ProjectsSection() {
   );
 
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="py-12 sm:py-16 md:py-20">
       <Container>
         <motion.div
           variants={staggerContainer}

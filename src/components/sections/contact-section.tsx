@@ -19,7 +19,7 @@ const contactDetails = [
 
 export function ContactSection() {
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="py-12 sm:py-16 md:py-20">
       <Container>
         <motion.div
           variants={staggerContainer}

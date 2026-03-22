@@ -35,7 +35,11 @@ export function GalleryCarousel({
 
   const items = React.Children.toArray(children);
   const displayItems = shouldClone
-    ? [...items, ...items, ...items]
+    ? [
+        ...items.map((item, i) => React.cloneElement(item as React.ReactElement, { key: `clone-a-${i}` })),
+        ...items.map((item, i) => React.cloneElement(item as React.ReactElement, { key: `clone-b-${i}` })),
+        ...items.map((item, i) => React.cloneElement(item as React.ReactElement, { key: `clone-c-${i}` })),
+      ]
     : items;
 
   const handleScroll = useCallback(() => {
@@ -126,7 +130,7 @@ export function GalleryCarousel({
         onTouchEnd={handleTouchEnd}
         onMouseEnter={pause}
         className={cn(
-          "flex gap-4 overflow-x-auto cursor-grab active:cursor-grabbing",
+          "flex gap-3 sm:gap-4 overflow-x-auto cursor-grab active:cursor-grabbing",
           shouldClone ? "justify-start" : "justify-center",
           "[scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden",
         )}

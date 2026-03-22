@@ -15,7 +15,7 @@ export function HeroSection() {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen pt-24 pb-16">
+    <section id="hero" className="relative min-h-screen pt-20 pb-12 sm:pt-24 sm:pb-16">
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <motion.div
@@ -37,7 +37,7 @@ export function HeroSection() {
                 Mohamed Abderraouf{" "}
                 <span className="text-accent-blue">ZOUAID</span>
               </h1>
-              <p className="mt-2 text-xl font-medium sm:text-2xl">
+              <p className="mt-2 text-lg font-medium sm:text-xl md:text-2xl">
                 Flutter Mobile Developer
               </p>
             </motion.div>

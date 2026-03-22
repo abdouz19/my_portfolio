@@ -9,7 +9,7 @@ import { fadeInLeft, staggerContainer } from "@/lib/utils/motion-variants";
 
 export function JourneySection() {
   return (
-    <section id="journey" className="py-20">
+    <section id="journey" className="py-12 sm:py-16 md:py-20">
       <Container>
         <motion.div
           variants={staggerContainer}

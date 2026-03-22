@@ -49,7 +49,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             onClick={onClose}
           />
           <motion.div
-            className="relative z-10 max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-border bg-background p-6"
+            className="relative z-10 max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-border bg-background p-4 sm:p-6"
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
@@ -63,7 +63,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               <X className="h-5 w-5" />
             </button>
 
-            <div className="relative mb-4 h-56 w-full overflow-hidden rounded-xl bg-card">
+            <div className="relative mb-4 h-40 w-full overflow-hidden rounded-xl bg-card sm:h-56">
               <Image
                 src={project.previewImage}
                 alt={`${project.title} preview`}
@@ -86,7 +86,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               {project.category.toUpperCase()}
             </Badge>
 
-            <h2 id="modal-title" className="mt-2 text-2xl font-bold">
+            <h2 id="modal-title" className="mt-2 text-xl font-bold sm:text-2xl">
               {project.title}
             </h2>
 

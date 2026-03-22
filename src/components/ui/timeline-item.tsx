@@ -27,8 +27,8 @@ export function TimelineItem({
             : "border-muted bg-card",
         )}
       />
-      <div className="rounded-xl border border-border bg-card p-6">
-        <h3 className="text-lg font-bold">{title}</h3>
+      <div className="rounded-xl border border-border bg-card p-4 sm:p-6">
+        <h3 className="text-base font-bold sm:text-lg">{title}</h3>
         <p
           className={cn(
             "text-sm",

@@ -9,7 +9,7 @@ import { fadeInUp, staggerContainer } from "@/lib/utils/motion-variants";
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="py-20">
+    <section id="skills" className="py-12 sm:py-16 md:py-20">
       <Container>
         <motion.div
           variants={staggerContainer}
@@ -26,7 +26,7 @@ export function SkillsSection() {
             </p>
           </motion.div>
 
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-4 sm:gap-6 sm:grid-cols-2">
             {skillCategories.map((category) => (
               <motion.div key={category.name} variants={fadeInUp}>
                 <SkillCard category={category} />

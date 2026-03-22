@@ -24,7 +24,7 @@ export function ProjectCard({ project, onDetailClick }: ProjectCardProps) {
         "group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:scale-[1.02] hover:border-border-glow-hover",
       )}
     >
-      <div className="relative w-full overflow-hidden rounded-t-xl bg-card-hover h-[280px]">
+      <div className="relative w-full overflow-hidden rounded-t-xl bg-card-hover h-[240px] sm:h-[280px]">
 
         {project.screenshots ? (
           <ProjectGallery
@@ -44,11 +44,11 @@ export function ProjectCard({ project, onDetailClick }: ProjectCardProps) {
           <ExternalLink className="h-4 w-4" />
         </button>
       </div>
-      <div className="flex-1 p-5">
+      <div className="flex-1 p-4 sm:p-5">
         <Badge variant="colored" color={categoryColors[project.category]}>
           {project.category.toUpperCase()}
         </Badge>
-        <h3 className="mt-2 text-lg font-bold">{project.title}</h3>
+        <h3 className="mt-2 text-base font-bold sm:text-lg">{project.title}</h3>
         <p className="mt-1 line-clamp-2 text-sm text-muted">
           {project.description}
         </p>

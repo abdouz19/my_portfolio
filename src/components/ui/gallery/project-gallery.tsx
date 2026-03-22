@@ -24,7 +24,7 @@ function MobileStaticLayout({ images }: { images: string[] }) {
 
   return (
     <div
-      className="flex items-end justify-center h-[280px]"
+      className="flex items-end justify-center h-[240px] sm:h-[280px]"
       style={{ perspective: "1000px" }}
     >
       {displayImages.map((src, i) => {
@@ -81,7 +81,7 @@ function MobileGallery({ images }: { images: string[] }) {
 function WebGallery({ images, title }: { images: string[]; title: string }) {
   if (images.length === 1) {
     return (
-      <div className={cn("h-[280px] p-3 flex items-center justify-center")}>
+      <div className={cn("h-[240px] sm:h-[280px] p-3 flex items-center justify-center")}>
         <motion.div
           custom={0}
           variants={galleryFrameVariants}
@@ -97,7 +97,7 @@ function WebGallery({ images, title }: { images: string[]; title: string }) {
   }
 
   return (
-    <div className="h-[280px] p-3">
+    <div className="h-[240px] sm:h-[280px] p-3">
       <GalleryCarousel itemCount={images.length}>
         {images.map((src, i) => (
           <motion.div
@@ -107,7 +107,7 @@ function WebGallery({ images, title }: { images: string[]; title: string }) {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="flex-shrink-0 w-[320px]"
+            className="flex-shrink-0 w-[260px] sm:w-[320px]"
           >
             <BrowserFrame src={src} alt={`${title} screenshot ${i + 1}`} title={title} />
           </motion.div>
@@ -120,7 +120,7 @@ function WebGallery({ images, title }: { images: string[]; title: string }) {
 function DesktopGallery({ images, title }: { images: string[]; title: string }) {
   if (images.length === 1) {
     return (
-      <div className={cn("h-[280px] p-3 flex items-center justify-center")}>
+      <div className={cn("h-[240px] sm:h-[280px] p-3 flex items-center justify-center")}>
         <motion.div
           custom={0}
           variants={galleryFrameVariants}
@@ -136,7 +136,7 @@ function DesktopGallery({ images, title }: { images: string[]; title: string }) 
   }
 
   return (
-    <div className="h-[280px] p-3">
+    <div className="h-[240px] sm:h-[280px] p-3">
       <GalleryCarousel itemCount={images.length}>
         {images.map((src, i) => (
           <motion.div
@@ -146,7 +146,7 @@ function DesktopGallery({ images, title }: { images: string[]; title: string }) 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="flex-shrink-0 w-[320px]"
+            className="flex-shrink-0 w-[260px] sm:w-[320px]"
           >
             <DesktopFrame
               src={src}

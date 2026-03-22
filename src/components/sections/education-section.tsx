@@ -10,7 +10,7 @@ import { fadeInUp, staggerContainer } from "@/lib/utils/motion-variants";
 
 export function EducationSection() {
   return (
-    <section id="education" className="py-20">
+    <section id="education" className="py-12 sm:py-16 md:py-20">
       <Container>
         <motion.div
           variants={staggerContainer}
