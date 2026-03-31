@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef } from "react";
 
 interface UseAutoScrollOptions {
   speed?: number;
@@ -10,79 +10,53 @@ interface UseAutoScrollOptions {
 export function useAutoScroll(
   containerRef: React.RefObject<HTMLDivElement | null>,
   options?: UseAutoScrollOptions,
-): { pause: () => void; resume: () => void; isScrolling: boolean } {
+): { pause: () => void; resume: () => void } {
   const speed = options?.speed ?? 30;
   const enabled = options?.enabled ?? true;
 
-  const [isScrolling, setIsScrolling] = useState(false);
   const rafRef = useRef<number | null>(null);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const pausedRef = useRef(false);
   const reducedMotionRef = useRef(false);
-
-  const isTouchOnlyRef = useRef(false);
 
   useEffect(() => {
     reducedMotionRef.current = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
-    isTouchOnlyRef.current = window.matchMedia("(hover: none)").matches;
   }, []);
 
   const step = useCallback(() => {
     const container = containerRef.current;
-    if (!container) return;
+    if (!container || pausedRef.current) {
+      rafRef.current = requestAnimationFrame(step);
+      return;
+    }
 
     container.scrollLeft += speed / 60;
 
-    if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
-      container.scrollLeft = 0;
+    // Seamless loop: when we've scrolled one full set, wrap back
+    const oneSetWidth = container.scrollWidth / 3;
+    if (container.scrollLeft >= oneSetWidth * 2) {
+      container.scrollLeft -= oneSetWidth;
     }
 
     rafRef.current = requestAnimationFrame(step);
   }, [containerRef, speed]);
 
-  const startScrolling = useCallback(() => {
-    if (reducedMotionRef.current || isTouchOnlyRef.current || !enabled) return;
-    setIsScrolling(true);
-    rafRef.current = requestAnimationFrame(step);
-  }, [enabled, step]);
-
   const pause = useCallback(() => {
-    if (rafRef.current !== null) {
-      cancelAnimationFrame(rafRef.current);
-      rafRef.current = null;
-    }
-    if (timeoutRef.current !== null) {
-      clearTimeout(timeoutRef.current);
-      timeoutRef.current = null;
-    }
-    setIsScrolling(false);
+    pausedRef.current = true;
   }, []);
 
   const resume = useCallback(() => {
-    if (reducedMotionRef.current || isTouchOnlyRef.current || !enabled) return;
-    if (timeoutRef.current !== null) {
-      clearTimeout(timeoutRef.current);
-    }
-    timeoutRef.current = setTimeout(() => {
-      startScrolling();
-      timeoutRef.current = null;
-    }, 1500);
-  }, [enabled, startScrolling]);
+    pausedRef.current = false;
+  }, []);
 
   useEffect(() => {
-    if (enabled && !reducedMotionRef.current) {
-      startScrolling();
-    }
+    if (!enabled || reducedMotionRef.current) return;
+    rafRef.current = requestAnimationFrame(step);
     return () => {
-      if (rafRef.current !== null) {
-        cancelAnimationFrame(rafRef.current);
-      }
-      if (timeoutRef.current !== null) {
-        clearTimeout(timeoutRef.current);
-      }
+      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
     };
-  }, [enabled, startScrolling]);
+  }, [enabled, step]);
 
-  return { pause, resume, isScrolling };
+  return { pause, resume };
 }

@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils/cn";
 
 interface PhoneFrameProps {
@@ -21,13 +20,11 @@ export function PhoneFrame({
   const [hasError, setHasError] = useState(false);
 
   return (
-    <motion.div
-      whileHover={{ y: -4, scale: 1.03 }}
-      transition={{ duration: 0.2 }}
+    <div
       className={cn(
         "w-[110px] h-[240px] md:w-[120px] md:h-[260px] xl:w-[140px] xl:h-[300px]",
         "rounded-[28px] bg-gray-900 border border-gray-700 p-[6px] relative overflow-hidden",
-        "shadow-lg hover:shadow-2xl transition-shadow duration-300",
+        "shadow-lg transition-all duration-300 hover:-translate-y-1 hover:scale-[1.03] hover:shadow-2xl",
         accentColor,
         className,
       )}
@@ -50,6 +47,6 @@ export function PhoneFrame({
           />
         )}
       </div>
-    </motion.div>
+    </div>
   );
 }

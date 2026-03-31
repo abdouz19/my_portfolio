@@ -24,12 +24,13 @@ function MobileStaticLayout({ images }: { images: string[] }) {
 
   return (
     <div
-      className="flex items-end justify-center h-[240px] sm:h-[280px]"
+      className="flex items-end justify-center h-[240px] sm:h-[280px] overflow-hidden"
       style={{ perspective: "1000px" }}
     >
       {displayImages.map((src, i) => {
         const pos = positions[i] ?? "center";
         const style = parallaxFrame[pos];
+        const isSide = i !== 1;
 
         return (
           <motion.div
@@ -45,6 +46,7 @@ function MobileStaticLayout({ images }: { images: string[] }) {
               rotateY: style.rotateY,
               opacity: style.opacity,
             }}
+            className={cn(isSide && "hidden sm:block")}
           >
             <PhoneFrame src={src} alt={`Screenshot ${i + 1}`} />
           </motion.div>
@@ -60,16 +62,15 @@ function MobileGallery({ images }: { images: string[] }) {
   }
 
   return (
-    <GalleryCarousel itemCount={images.length} autoScroll>
+    <GalleryCarousel itemCount={images.length}>
       {images.map((src, i) => (
         <motion.div
           key={src}
           custom={i}
           variants={galleryFrameVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="flex-shrink-0"
+          animate="visible"
+          className="flex-shrink-0 snap-start"
         >
           <PhoneFrame src={src} alt={`Screenshot ${i + 1}`} />
         </motion.div>
@@ -105,9 +106,8 @@ function WebGallery({ images, title }: { images: string[]; title: string }) {
             custom={i}
             variants={galleryFrameVariants}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="flex-shrink-0 w-[260px] sm:w-[320px]"
+            animate="visible"
+            className="flex-shrink-0 snap-start w-[240px] sm:w-[320px]"
           >
             <BrowserFrame src={src} alt={`${title} screenshot ${i + 1}`} title={title} />
           </motion.div>
@@ -144,9 +144,8 @@ function DesktopGallery({ images, title }: { images: string[]; title: string }) 
             custom={i}
             variants={galleryFrameVariants}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="flex-shrink-0 w-[260px] sm:w-[320px]"
+            animate="visible"
+            className="flex-shrink-0 snap-start w-[240px] sm:w-[320px]"
           >
             <DesktopFrame
               src={src}

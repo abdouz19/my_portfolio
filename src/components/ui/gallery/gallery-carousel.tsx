@@ -8,7 +8,6 @@ import { GalleryDots } from "./gallery-dots";
 interface GalleryCarouselProps {
   children: React.ReactNode;
   itemCount: number;
-  autoScroll?: boolean;
   className?: string;
 }
 
@@ -17,7 +16,6 @@ const DOT_THRESHOLD = 3;
 export function GalleryCarousel({
   children,
   itemCount,
-  autoScroll = true,
   className,
 }: GalleryCarouselProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -27,10 +25,9 @@ export function GalleryCarousel({
   const startScrollLeft = useRef(0);
 
   const shouldClone = itemCount > 3;
-  const shouldAutoScroll = autoScroll && shouldClone;
 
   const { pause, resume } = useAutoScroll(containerRef, {
-    enabled: shouldAutoScroll,
+    enabled: shouldClone,
   });
 
   const items = React.Children.toArray(children);
@@ -117,7 +114,7 @@ export function GalleryCarousel({
   }, [resume]);
 
   return (
-    <div className={cn("w-full", className)}>
+    <div className={cn("w-full overflow-hidden", className)}>
       <div
         ref={containerRef}
         onScroll={handleScroll}
@@ -128,10 +125,9 @@ export function GalleryCarousel({
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
-        onMouseEnter={pause}
         className={cn(
-          "flex gap-3 sm:gap-4 overflow-x-auto cursor-grab active:cursor-grabbing",
-          shouldClone ? "justify-start" : "justify-center",
+          "flex gap-3 sm:gap-4 overflow-x-auto",
+          shouldClone ? "justify-start cursor-grab active:cursor-grabbing" : "justify-center",
           "[scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden",
         )}
       >
