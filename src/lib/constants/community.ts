@@ -2,17 +2,17 @@ import { CommunityOrganization } from "@/lib/types/community";
 
 export const communityOrganizations: CommunityOrganization[] = [
   {
-    name: "Google Developer Group",
+    name: "Google Developers Student Club",
     icon: "Code2",
-    iconColor: "text-accent-teal",
-    role: "Active Member & Organizer",
-    tags: ["Event Organizer"],
+    iconColor: "text-accent-blue",
+    role: "Active member & organizer",
+    tags: ["UX/Designer"],
   },
   {
-    name: "School of AI",
+    name: "Google Developer Group",
     icon: "Brain",
-    iconColor: "text-accent-purple",
-    role: "Active member & organizer",
-    tags: ["Event Organizer"],
+    iconColor: "text-accent-teal",
+    role: "Active Member & Organizer",
+    tags: ["External Relations Coordinator"],
   },
 ];

@@ -12,6 +12,7 @@ export interface SocialLink {
 export interface ContactInfo {
   email: string;
   phone: string;
+  whatsapp: string;
   location: string;
 }
 

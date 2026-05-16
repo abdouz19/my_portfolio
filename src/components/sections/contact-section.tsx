@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import { iconMap } from "@/lib/utils/icon-map";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -14,6 +14,7 @@ import { fadeInUp, staggerContainer } from "@/lib/utils/motion-variants";
 const contactDetails = [
   { icon: Mail, label: "Email", value: contactInfo.email },
   { icon: Phone, label: "Phone", value: contactInfo.phone },
+  { icon: MessageCircle, label: "WhatsApp", value: contactInfo.whatsapp },
   { icon: MapPin, label: "Location", value: contactInfo.location },
 ];
 

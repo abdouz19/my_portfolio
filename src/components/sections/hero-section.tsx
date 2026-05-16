@@ -49,7 +49,7 @@ export function HeroSection() {
             </motion.p>
 
             <motion.div variants={fadeInUp} className="flex flex-wrap gap-3">
-              <a href="/files/Abderraouf Zouaid Resume.pdf" download>
+              <a href="/files/Abderraouf Zouaid-CV.pdf" download>
                 <Button icon={<Download className="h-4 w-4" />}>
                   Download CV
                 </Button>
