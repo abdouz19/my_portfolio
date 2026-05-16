@@ -36,7 +36,14 @@ export function ContactForm() {
     if (data.honeypot) return;
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) throw new Error("Failed");
+
       setStatus("success");
       reset();
       setTimeout(() => setStatus("idle"), 5000);
