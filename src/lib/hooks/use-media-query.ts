@@ -7,14 +7,19 @@ export function useMediaQuery(query: string) {
 
   useEffect(() => {
     const media = window.matchMedia(query);
-    setMatches(media.matches);
-
     const handler = (event: MediaQueryListEvent) => {
       setMatches(event.matches);
     };
 
+    const id = requestAnimationFrame(() => {
+      setMatches(media.matches);
+    });
+
     media.addEventListener("change", handler);
-    return () => media.removeEventListener("change", handler);
+    return () => {
+      cancelAnimationFrame(id);
+      media.removeEventListener("change", handler);
+    };
   }, [query]);
 
   return matches;

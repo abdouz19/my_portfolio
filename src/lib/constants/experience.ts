@@ -2,6 +2,19 @@ import { ExperienceEntry } from "@/lib/types/experience";
 
 export const experienceEntries: ExperienceEntry[] = [
   {
+    title: "Software Engineer",
+    company: "Progix, Montreal, Canada (Remote)",
+    type: "Remote",
+    startDate: "07.2026",
+    endDate: "Present",
+    isCurrent: true,
+    responsibilities: [
+      "Engineered scalable software solutions and high-performance cross-platform applications.",
+      "Implemented clean architecture principles and maintainable code practices.",
+      "Collaborated with cross-functional teams to deliver end-to-end user-centric features.",
+    ],
+  },
+  {
     title: "Mobile Developer",
     company: "Deepminds Ventures, UAE (Remote)",
     type: "Remote",

@@ -9,6 +9,10 @@ import {
   Instagram,
   Code2,
   Brain,
+  Database,
+  Cpu,
+  Layers,
+  BarChart3,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -23,4 +27,8 @@ export const iconMap: Record<string, LucideIcon> = {
   Instagram,
   Code2,
   Brain,
+  Database,
+  Cpu,
+  Layers,
+  BarChart3,
 };

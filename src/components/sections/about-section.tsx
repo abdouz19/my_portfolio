@@ -14,7 +14,7 @@ const aboutCards = [
     iconColor: "text-accent-blue",
     title: "Education",
     description:
-      "Pursuing Master's in Big Data Analytics (USTHB). Holds a Bachelor's in CS.",
+      "Holds a Master's in Big Data Analytics (USTHB) & Bachelor's in CS.",
   },
   {
     icon: Users,
@@ -48,12 +48,12 @@ export function AboutSection() {
               <SectionHeading title="About" highlight="Me" />
             </motion.div>
             <motion.p variants={fadeInUp} className="text-muted">
-              I&apos;m a dedicated Mobile Developer currently pursuing my
+              I&apos;m a dedicated Mobile Developer & Software Engineer holding a
               Master&apos;s Degree in Big Data Analytics. With a passion for
               creating innovative solutions, I specialize in developing modern
-              and robust mobile applications using Flutter. My journey in
-              software development has been marked by continuous learning and
-              hands-on experience with cutting-edge technologies.
+              and robust mobile applications using Flutter and scalable software.
+              My journey in software development has been marked by continuous
+              learning and hands-on experience with cutting-edge technologies.
             </motion.p>
             <motion.div variants={fadeInUp} className="flex gap-6">
               <div className="text-center">

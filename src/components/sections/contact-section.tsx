@@ -76,7 +76,7 @@ export function ContactSection() {
                   <div>
                     <p className="font-bold">Mohamed Abderraouf Zouaid</p>
                     <p className="text-sm text-muted">
-                      Flutter Mobile Developer
+                      Mobile Software Engineer
                     </p>
                   </div>
                 </div>

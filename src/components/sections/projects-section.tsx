@@ -77,7 +77,7 @@ export function ProjectsSection() {
 
           <motion.div variants={fadeInUp} className="text-center">
             <a
-              href="https://github.com/"
+              href="https://github.com/abdouz19"
               target="_blank"
               rel="noopener noreferrer"
             >

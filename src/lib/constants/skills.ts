@@ -2,25 +2,26 @@ import { SkillCategory } from "@/lib/types/skill";
 
 export const skillCategories: SkillCategory[] = [
   {
-    name: "Mobile Development",
+    name: "Mobile Engineering",
     icon: "Smartphone",
     accentColor: "bg-accent-purple",
     skills: [
-      { name: "Flutter", percentage: 95 },
-      { name: "Dart", percentage: 90 },
-      { name: "Java (Android)", percentage: 85 },
-      { name: "State Management", percentage: 90 },
+      { name: "Flutter & Dart", percentage: 95 },
+      { name: "BLoC, Riverpod & Provider", percentage: 90 },
+      { name: "Android Development (Java, XML)", percentage: 85 },
+      { name: "iOS Development", percentage: 80 },
+      { name: "Clean Architecture & OOP", percentage: 92 },
     ],
   },
   {
-    name: "Web Development",
+    name: "Web & CMS Development",
     icon: "Globe",
     accentColor: "bg-accent-teal",
     skills: [
-      { name: "React", percentage: 80 },
       { name: "JavaScript", percentage: 90 },
-      { name: "HTML/CSS", percentage: 95 },
-      { name: "Tailwind CSS", percentage: 85 },
+      { name: "HTML5 & CSS (Web Design)", percentage: 95 },
+      { name: "User Experience (UX) & Figma", percentage: 85 },
+      { name: "PHP, WordPress & WooCommerce", percentage: 80 },
     ],
   },
   {
@@ -28,19 +29,34 @@ export const skillCategories: SkillCategory[] = [
     icon: "Server",
     accentColor: "bg-accent-green",
     skills: [
-      { name: "Python (Flask)", percentage: 70 },
-      { name: "Firebase", percentage: 90 },
-      { name: "MongoDB", percentage: 80 },
+      { name: "Python & Flask", percentage: 85 },
+      { name: "Firebase & Supabase", percentage: 90 },
+      { name: "REST APIs", percentage: 95 },
+      { name: "Relational DBs (SQL, PL/SQL, Oracle, MySQL, SQLite)", percentage: 88 },
+      { name: "NoSQL DBs (MongoDB, Cassandra, Neo4j)", percentage: 80 },
     ],
   },
   {
-    name: "Tools & Others",
-    icon: "Wrench",
+    name: "Data Engineering & Analytics",
+    icon: "BarChart3",
+    accentColor: "bg-accent-blue",
+    skills: [
+      { name: "ETL & Data Warehouse Architecture", percentage: 85 },
+      { name: "Data Analysis (Pandas, NumPy, Statistics)", percentage: 88 },
+      { name: "Spatial Analysis & ArcGIS", percentage: 80 },
+      { name: "Microsoft Power BI", percentage: 82 },
+      { name: "Machine Learning", percentage: 78 },
+    ],
+  },
+  {
+    name: "DevOps & Infrastructure",
+    icon: "Cpu",
     accentColor: "bg-accent-orange",
     skills: [
-      { name: "Git/GitHub", percentage: 90 },
-      { name: "Figma", percentage: 80 },
-      { name: "AI/ML Basics", percentage: 70 },
+      { name: "Docker & Kubernetes", percentage: 82 },
+      { name: "CI/CD (GitLab CI/CD, Codemagic)", percentage: 85 },
+      { name: "Dokploy Platform Deployment", percentage: 80 },
+      { name: "Version Control (Git & GitHub)", percentage: 92 },
     ],
   },
 ];

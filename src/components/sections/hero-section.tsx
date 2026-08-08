@@ -38,14 +38,15 @@ export function HeroSection() {
                 <span className="text-accent-blue">ZOUAID</span>
               </h1>
               <p className="mt-2 text-lg font-medium sm:text-xl md:text-2xl">
-                Flutter Mobile Developer
+                Mobile Software Engineer
               </p>
             </motion.div>
 
             <motion.p variants={fadeInUp} className="max-w-lg text-muted">
-              Passionate mobile developer specializing in creating innovative
-              mobile solutions. I bring ideas to life with clean code and
-              exceptional user experiences.
+              Passionate Mobile Software Engineer dedicated to crafting
+              high-performance cross-platform applications and scalable software
+              solutions. I turn complex ideas into seamless user experiences using
+              clean architecture and modern engineering practices.
             </motion.p>
 
             <motion.div variants={fadeInUp} className="flex flex-wrap gap-3">
@@ -94,7 +95,7 @@ export function HeroSection() {
               <div className="relative h-full w-full overflow-hidden rounded-full ring-4 ring-accent-blue/30">
                 <Image
                   src="/images/me.jpg"
-                  alt="Mohamed Abderraouf Zouaid - Flutter Mobile Developer"
+                  alt="Mohamed Abderraouf Zouaid - Mobile Software Engineer"
                   fill
                   priority
                   className="object-cover"

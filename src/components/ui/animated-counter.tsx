@@ -49,7 +49,8 @@ export function AnimatedCounter({
 
   useEffect(() => {
     if (isInView) {
-      animate();
+      const id = requestAnimationFrame(() => animate());
+      return () => cancelAnimationFrame(id);
     }
   }, [isInView, animate]);
 

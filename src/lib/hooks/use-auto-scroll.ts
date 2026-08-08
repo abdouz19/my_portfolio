@@ -24,24 +24,6 @@ export function useAutoScroll(
     ).matches;
   }, []);
 
-  const step = useCallback(() => {
-    const container = containerRef.current;
-    if (!container || pausedRef.current) {
-      rafRef.current = requestAnimationFrame(step);
-      return;
-    }
-
-    container.scrollLeft += speed / 60;
-
-    // Seamless loop: when we've scrolled one full set, wrap back
-    const oneSetWidth = container.scrollWidth / 3;
-    if (container.scrollLeft >= oneSetWidth * 2) {
-      container.scrollLeft -= oneSetWidth;
-    }
-
-    rafRef.current = requestAnimationFrame(step);
-  }, [containerRef, speed]);
-
   const pause = useCallback(() => {
     pausedRef.current = true;
   }, []);
@@ -52,11 +34,26 @@ export function useAutoScroll(
 
   useEffect(() => {
     if (!enabled || reducedMotionRef.current) return;
+
+    function step() {
+      const container = containerRef.current;
+      if (container && !pausedRef.current) {
+        container.scrollLeft += speed / 60;
+
+        // Seamless loop: when we've scrolled one full set, wrap back
+        const oneSetWidth = container.scrollWidth / 3;
+        if (container.scrollLeft >= oneSetWidth * 2) {
+          container.scrollLeft -= oneSetWidth;
+        }
+      }
+      rafRef.current = requestAnimationFrame(step);
+    }
+
     rafRef.current = requestAnimationFrame(step);
     return () => {
       if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
     };
-  }, [enabled, step]);
+  }, [containerRef, speed, enabled]);
 
   return { pause, resume };
 }
